@@ -1,0 +1,13 @@
+{
+  "title": "warm.vodka",
+  "accountLink": {
+    "label": "manage your account",
+    "url": "example.com"
+  },
+  "links": {
+    "lorem0": "example.com",
+    "ipsum1": "example.com",
+    "lorem2": "example.com",
+    "ipsum3": "example.com"
+  }
+}

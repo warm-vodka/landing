@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#160f11" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/navigation.ts"></script>
+  </head>
+  <body>
+    <main box-="square">
+      <header>
+        <pre class="wordmark" aria-hidden="true">{{wordmark}}</pre>
+        <h1>{{title}}</h1>
+      </header>
+      <nav aria-label="Services">
+        <ul>{{links}}</ul>
+      </nav>
+      {{accountLink}}
+      <p class="keymap"><span><kbd>j</kbd>/<kbd>k</kbd> move</span><span><kbd>gg</kbd>/<kbd>ge</kbd> first/last</span><span><kbd>enter</kbd> open</span></p>
+    </main>
+  </body>
+</html>

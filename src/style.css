@@ -1,0 +1,76 @@
+@layer base, utils, components;
+@import '@webtui/css/base.css';
+@import '@webtui/css/utils/box.css';
+@import '@webtui/css/components/button.css';
+@import '@webtui/css/components/typography.css';
+
+:root {
+  color-scheme: dark;
+  --background0: #160f11;
+  --background1: #30191e;
+  --background2: #85404a;
+  --background3: #bc9b9f;
+  --foreground0: #f4e8e8;
+  --foreground1: #bc9b9f;
+  --foreground2: #ff747e;
+  --box-border-color: var(--background2);
+  --font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --font-size: 16px;
+  --line-height: 1.5;
+}
+
+@layer base {
+  a { text-decoration: none; }
+}
+
+body {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2lh 2ch;
+  word-break: normal;
+}
+
+main {
+  container-type: inline-size;
+  display: grid;
+  gap: 1lh;
+  width: min(100%, 54ch);
+  min-width: 0;
+}
+
+header, .keymap { padding-inline: 1ch; }
+h1, .wordmark { color: var(--foreground2); }
+h1, a { overflow-wrap: anywhere; }
+pre, kbd { font: inherit; }
+li, footer { display: flex; }
+li::before { content: none; }
+
+a[is-="button"] {
+  flex: 1;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 1lh;
+  height: auto;
+}
+
+a:is(:hover, :focus) {
+  --button-primary: var(--foreground2);
+  --button-secondary: var(--background0);
+}
+
+.keymap { display: flex; flex-wrap: wrap; column-gap: 2ch; }
+.keymap span { white-space: nowrap; }
+.wordmark { display: none; white-space: pre; overflow-x: auto; }
+
+@container (min-width: 50ch) {
+  .wordmark { display: block; }
+  h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
