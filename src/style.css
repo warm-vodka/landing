@@ -6,14 +6,15 @@
 
 :root {
   color-scheme: dark;
-  --background0: #160f11;
-  --background1: #30191e;
-  --background2: #85404a;
-  --background3: #bc9b9f;
+  --background0: #171416;
+  --background1: #211d1f;
+  --background2: #2b2528;
+  --background3: #352d31;
   --foreground0: #f4e8e8;
-  --foreground1: #bc9b9f;
-  --foreground2: #ff747e;
-  --box-border-color: var(--background2);
+  --foreground1: #b4a7aa;
+  --accent: #ff747e;
+  --foreground2: var(--accent);
+  --box-border-color: #3b3336;
   --font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   --font-size: 16px;
   --line-height: 1.5;
@@ -39,14 +40,22 @@ main {
   min-width: 0;
 }
 
+main::before { --box-border-width: 1px; }
+
 header, .keymap { padding-inline: 1ch; }
-h1, .wordmark { color: var(--foreground2); }
+h1, .wordmark { color: var(--accent); }
 h1, a { overflow-wrap: anywhere; }
 pre, kbd { font: inherit; }
 li, footer { display: flex; }
 li::before { content: none; }
 
 a[is-="button"] {
+  position: relative;
+  color: var(--foreground0);
+  background-color: var(--background0);
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 120ms, color 120ms, border-color 120ms;
   flex: 1;
   justify-content: flex-start;
   min-width: 0;
@@ -54,9 +63,38 @@ a[is-="button"] {
   height: auto;
 }
 
-a:is(:hover, :focus) {
-  --button-primary: var(--foreground2);
-  --button-secondary: var(--background0);
+a[is-="button"]:hover {
+  background-color: var(--background1);
+}
+
+a[is-="button"]:focus-visible {
+  background-color: var(--background3);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a[is-="button"]:focus-visible::before {
+  content: "";
+  position: absolute;
+  inset-block: 4px;
+  left: 0;
+  width: 2px;
+  background-color: var(--accent);
+}
+
+a[is-="button"]:active {
+  background-color: var(--background3);
+}
+
+kbd {
+  color: var(--foreground1);
+  background-color: var(--background1);
+  border: 1px solid var(--box-border-color);
+  padding-inline: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a[is-="button"] { transition: none; }
 }
 
 .keymap { display: flex; flex-wrap: wrap; column-gap: 2ch; }
