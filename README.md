@@ -20,6 +20,13 @@ let
         url = "account.example.com";
       };
       # Or: accountLink = null;
+
+      # Optional: override any subset of the palette.
+      colors = {
+        background0 = "#101820";
+        accent = "#80cbc4";
+        box-border-color = "#567890";
+      };
     };
 in
 {
@@ -37,11 +44,25 @@ in
 
 ## theme
 
-Colours live in `src/style.css`: warm neutral surfaces (`#171416`, `#211d1f`,
-`#2b2528`, `#352d31`), pale labels (`#f4e8e8`), secondary text (`#b4a7aa`),
-and a separate coral accent (`#ff747e`). The square frame uses a 1px `#3b3336` border.
+The package's `.override` accepts a `colors` attribute set. Only supplied colours
+change; the rest inherit the defaults in `site.json`. Local development uses the
+same palette, which can also be overridden through `colors` in a `SITE_CONFIG`
+JSON file. Values are CSS colour strings, and names match the CSS custom
+properties without their `--` prefix.
 
-Service and account links keep pale text on neutral hover, pressed, and keyboard
-selection surfaces. Keyboard focus adds a coral outline and side marker;
-the outline stays visible above adjacent rows.
+| Attribute | Default | Use |
+| --- | --- | --- |
+| `background0` | `#171416` | Page and link background; browser theme colour |
+| `background1` | `#211d1f` | Hover and keycap background |
+| `background2` | `#2b2528` | WebTUI secondary surface |
+| `background3` | `#352d31` | Pressed and keyboard-selection background |
+| `foreground0` | `#f4e8e8` | Primary text |
+| `foreground1` | `#b4a7aa` | Secondary text |
+| `foreground2` | `var(--accent)` | WebTUI tertiary text; follows `accent` by default |
+| `accent` | `#ff747e` | Heading, keyboard-focus outline and side marker |
+| `box-border-color` | `#3b3336` | Frame and keycap borders |
+
+Service and account links keep primary text on neutral hover, pressed, and
+keyboard-selection surfaces. The square frame uses a 1px border, and the
+keyboard-focus outline stays visible above adjacent rows.
 Colour feedback takes 120ms and is disabled for reduced-motion preferences.

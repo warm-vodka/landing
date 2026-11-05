@@ -1,5 +1,16 @@
 {
   "title": "warm.vodka",
+  "colors": {
+    "background0": "#171416",
+    "background1": "#211d1f",
+    "background2": "#2b2528",
+    "background3": "#352d31",
+    "foreground0": "#f4e8e8",
+    "foreground1": "#b4a7aa",
+    "foreground2": "var(--accent)",
+    "accent": "#ff747e",
+    "box-border-color": "#3b3336"
+  },
   "accountLink": {
     "label": "manage your account",
     "url": "example.com"

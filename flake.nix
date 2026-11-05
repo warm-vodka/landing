@@ -24,6 +24,7 @@
             title ? defaults.title,
             links ? defaults.links,
             accountLink ? defaults.accountLink,
+            colors ? {},
           }:
             pkgs.buildNpmPackage {
               pname = "warm-vodka-landing-page";
@@ -47,6 +48,7 @@
                     links
                     accountLink
                     ;
+                  colors = defaults.colors // colors;
                 }
               );
               installPhase = ''
